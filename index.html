@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Kuesioner Financial Mindfulness</title>
+  <title>REFLEKSI ATAS SIKAP DASAR ANGGARAN</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="description" content="Isi kuesioner ini untuk mengukur tingkat financial mindfulness Anda dan dapatkan skornya.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,10 +13,10 @@
       --primary-color: #FFFFFF; /* Biru Google */
       --secondary-color: #34a853; /* Hijau Google */
       --tertiary-color: #fbbc05; /* Kuning Google */
-      --background-light: #FFFDDO; /* Abu-abu terang */
+      --background-light: #F7F7F7; /* Abu-abu terang */
       --text-dark: #202124; /* Abu-abu gelap */
       --text-light: #5f6368; /* Abu-abu medium */
-      --card-background: #355E3B;
+      --card-background: #FFFFFF;
       --font-family: 'Poppins', sans-serif;
     }
     body {
@@ -711,20 +711,32 @@
         const resultIcon = document.querySelector('#result-page .result-icon');
         
         let description = "";
-        if (category === "Mindfulness Keuangan: RENDAH") {
+        if (score <3.455) {
+          (category === "Mindfulness Keuangan: RENDAH") {
           description = "Hasil ini menunjukkan Anda mungkin memiliki kesadaran dan penerimaan yang rendah terhadap keuangan pribadi. Mulailah dengan membuat anggaran sederhana dan melacak pengeluaran untuk meningkatkan pemahaman Anda.";
           categoryDisplay.style.color = '#e74c3c';
           resultIcon.innerHTML = "😔";
-        } else if (category === "Mindfulness Keuangan: SEDANG") {
+        } else if (score>= 3.455 && score <= 4.010) {
+          (category === "Mindfulness Keuangan: SEDANG") {
           description = "Anda memiliki kesadaran dan penerimaan yang cukup baik, tetapi masih ada ruang untuk perbaikan. Coba luangkan waktu setiap bulan untuk meninjau laporan keuangan Anda dan identifikasi area yang bisa ditingkatkan.";
           categoryDisplay.style.color = '#f39c12';
           resultIcon.innerHTML = "🤔";
-        } else if (category === "Mindfulness Keuangan: TINGGI") {
+        } else if (score >= 4.011 && score <= 5.122) {
+          (category === "Mindfulness Keuangan: TINGGI") {
           description = "Selamat! Anda menunjukkan tingkat kesadaran dan penerimaan yang tinggi terhadap keuangan pribadi. Pertahankan kebiasaan positif ini dan teruslah belajar untuk mencapai tujuan finansial Anda.";
           categoryDisplay.style.color = '#34a853';
           resultIcon.innerHTML = "🥳";
-        }
-        categoryDisplay.textContent = category;
+        } else if (score >= 5.123 && score <= 5.678) {
+          (category = "Mindfulness Keuangan: SANGAT TINGGI";
+          description = "Anda sudah sangat sadar dan mampu mengelola keuangan dengan sangat baik. Tingkatkan literasi keuangan untuk semakin kuat dalam pengambilan keputusan.";
+          categoryDisplay.style.color = '#2ecc71';
+          resultIcon.innerHTML = "🏆";
+      } else if (score > 5.679) {
+        category = "Mindfulness Keuangan: ISTIMEWA";
+        description = "Anda memiliki tingkat mindfulness keuangan yang luar biasa. Terus pertahankan kebiasaan hebat ini!";
+        categoryDisplay.style.color = '#1abc9c';
+        resultIcon.innerHTML = "🌟";
+          = category;
         categoryDescription.textContent = description;
         
         showPage('result-page');
